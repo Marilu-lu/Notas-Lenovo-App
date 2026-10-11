@@ -1,5 +1,7 @@
 # Mis notas Notebook — Windows, teclado y mouse
 
+Lee primero `INSTALAR.txt`, incluido en el paquete, para abrir la aplicación y proteger tus notas.
+
 Versión local para escribir notas, dar formato, insertar imágenes y adjuntar PDF u otros archivos. No contiene controles de lápiz digital.
 
 ## Abrir

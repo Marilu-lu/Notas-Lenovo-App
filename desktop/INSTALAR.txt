@@ -1,0 +1,63 @@
+MIS NOTAS: GUÍA DE INSTALACIÓN Y PRIMER USO
+=========================================
+
+ELIGE TU DISPOSITIVO
+- Tablet Lenovo: usa Mis-notas-Lenovo-0.2.apk.
+- PC o notebook Samsung con Windows: usa Mis-notas-Notebook-0.1.zip.
+El APK es para Android. No se abre en Windows.
+No necesitas Android Studio para usar ninguna de las dos versiones.
+
+TABLET LENOVO (SIN CABLE USB)
+1. Descarga Mis-notas-Lenovo-0.2.apk desde el enlace entregado en el chat.
+   Puedes descargarlo directamente en la tablet. Si lo descargas en el PC,
+   súbelo a tu Google Drive y descárgalo desde Drive en la tablet.
+2. Abre la aplicación Archivos de la tablet y entra en Descargas.
+3. Toca Mis-notas-Lenovo-0.2.apk.
+4. Si Android solicita permitir instalaciones desde esa aplicación, abre
+   Configuración desde el aviso y permite instalar aplicaciones de esa fuente.
+   Los nombres del ajuste pueden variar según la versión de Android.
+5. Vuelve al archivo y pulsa Instalar. Al finalizar, pulsa Abrir.
+6. Busca Mis notas en la lista de aplicaciones para abrirla después.
+7. Puedes desactivar nuevamente el permiso de instalación de esa fuente.
+
+Si ya tienes Mis notas instalada:
+- Primero guarda una copia desde la biblioteca: Copia / Drive.
+- Instala el nuevo APK sobre la aplicación existente, sin desinstalarla.
+- Si aparece un conflicto de firma o no se instala, conserva la aplicación
+  anterior y comunícame el mensaje exacto. No borres sus datos.
+
+PC / NOTEBOOK SAMSUNG CON WINDOWS
+Esta versión se abre en el navegador; todavía no tiene instalador EXE.
+1. Descarga Mis-notas-Notebook-0.1.zip desde el enlace del chat.
+2. Haz clic derecho en el ZIP y elige Extraer todo.
+3. Guarda la carpeta extraída en un lugar fijo, por ejemplo:
+   Documentos\Mis-notas-Notebook.
+4. Abre la carpeta. Haz clic derecho en index.html, elige Abrir con y
+   selecciona Microsoft Edge o Google Chrome.
+   También puedes usar Abrir-Mis-Notas.bat, que abre el navegador predeterminado.
+5. Usa siempre el mismo navegador, perfil y ubicación de la carpeta.
+6. Para acceso rápido, puedes crear un acceso directo a index.html en el
+   escritorio mediante el menú contextual de Windows.
+
+PRIMERA PRUEBA EN EL PC
+1. Crea una nota, escribe un título y un párrafo, y añade una imagen.
+2. Espera a que el estado de guardado confirme que se guardó.
+3. Cierra y vuelve a abrir index.html con el mismo navegador y perfil.
+4. Comprueba que la nota siga allí. Después usa Guardar copia y conserva
+   el archivo JSON fuera de la carpeta de la aplicación.
+Si no guarda o aparece un error, no empieces a guardar información importante:
+comunícame el mensaje. El guardado debe comprobarse en tu notebook.
+
+CONSERVAR TUS NOTAS
+- Tablet: usa Copia / Drive y conserva el ZIP de respaldo.
+- PC: usa Guardar copia y conserva el JSON de respaldo. Para recuperarlo,
+  usa Abrir copia en la aplicación.
+- Puedes subir estos respaldos a Google Drive manualmente.
+- En el PC, no uses modo incógnito ni borres los datos del navegador sin copia.
+- Antes de actualizar o mover la carpeta del PC, guarda una copia. Si la
+  biblioteca no aparece después, usa Abrir copia con el respaldo.
+- Los respaldos de Android (ZIP) y del PC (JSON) son formatos distintos:
+  no se importan entre sí. PDF, texto e imágenes sirven para compartir contenido.
+- No hay sincronización automática entre dispositivos o con Google Drive.
+
+Estas son versiones de prueba. Comprueba primero con una nota de ejemplo.

@@ -1,5 +1,7 @@
 # Mis notas — Android y Notebook
 
+Para instalar o abrir la aplicación, consulta [INSTALAR.txt](INSTALAR.txt): instrucciones para tablet sin cable USB y para notebook Windows.
+
 ## Versión para notebook Samsung / Windows
 
 La carpeta [desktop/](desktop/README.md) contiene una versión local centrada en teclado y mouse: editor con formato, imágenes, PDF y archivos adjuntos, organización, búsqueda y respaldo. Abrir `desktop/index.html` con Edge o Chrome. No requiere Android Studio y no contiene controles de lápiz.
