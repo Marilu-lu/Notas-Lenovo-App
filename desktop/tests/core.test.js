@@ -1,0 +1,15 @@
+const assert=require('node:assert/strict');
+const C=require('../core.js');
+const note=(id,title,extra={})=>({id,title,html:'<p>Apuntes de biología</p>',attachments:[],folder:'Estudio/Biología',tags:'curso',favorite:false,trash:false,created:1,updated:1,...extra});
+const notes=[note('1','Clase',{favorite:true,updated:3}),note('2','Trabajo',{folder:'Trabajo',updated:2}),note('3','Borrada',{trash:true})];
+assert.deepEqual(C.filterNotes(notes,'all','','updated').map(n=>n.id),['1','2']);
+assert.deepEqual(C.filterNotes(notes,'favorites','','updated').map(n=>n.id),['1']);
+assert.deepEqual(C.filterNotes(notes,'trash','','updated').map(n=>n.id),['3']);
+assert.deepEqual(C.filterNotes(notes,'folder:Estudio','','updated').map(n=>n.id),['1']);
+assert.equal(C.filterNotes(notes,'all','biología','title').length,2);
+assert.equal(C.parseBackup({format:'mis-notas-notebook',version:1,notes}).length,3);
+assert.throws(()=>C.parseBackup({format:'unknown',version:1,notes}));
+assert.throws(()=>C.validate(note('4','Bad',{attachments:[{id:'file',name:'test',type:'text/plain',data:'javascript:alert(1)'}]})));
+assert.throws(()=>C.validate(note('5','Too big',{html:'x'.repeat(C.MAX_NOTE+1)})));
+assert.equal(C.validate(note('6','Original',{title:'a'.repeat(300)})).title.length,250);
+console.log('PASS: filters, nested folders, search, backup schema, attachment validation and size limits.');

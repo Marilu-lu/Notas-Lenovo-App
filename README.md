@@ -1,4 +1,12 @@
-# Mis notas — Android 0.2
+# Mis notas — Android y Notebook
+
+## Versión para notebook Samsung / Windows
+
+La carpeta [desktop/](desktop/README.md) contiene una versión local centrada en teclado y mouse: editor con formato, imágenes, PDF y archivos adjuntos, organización, búsqueda y respaldo. Abrir `desktop/index.html` con Edge o Chrome. No requiere Android Studio y no contiene controles de lápiz.
+
+Las versiones Android y notebook tienen bibliotecas locales y formatos de respaldo diferentes. El módulo desktop no establece sincronización automática entre ambas. Sus pruebas de lógica se ejecutan con `node desktop/tests/core.test.js`; la prueba visual y la persistencia en navegador siguen pendientes porque el navegador de revisión bloqueó el protocolo de archivos locales.
+
+## Versión Android 0.2
 
 Aplicación para Lenovo Tab M10 Plus (3rd gen), con diseño e implementación propios. El objetivo es ampliar la cobertura funcional de una aplicación de notas como Samsung Notes. **No se declara equivalencia al 100 %.** Ver [FUNCIONES.md](FUNCIONES.md).
 

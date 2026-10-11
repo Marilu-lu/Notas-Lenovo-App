@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Mis notas · Notebook</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="app">
+  <aside class="sidebar" aria-label="Colecciones">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">N</span><div><strong>Mis notas</strong><span>Notebook</span></div></div>
+    <button id="new-note" class="primary">＋ Nueva nota</button>
+    <nav><button data-filter="all" class="selected">Todas las notas <span id="count-all"></span></button><button data-filter="favorites">☆ Favoritos</button><button data-filter="trash">Papelera</button></nav>
+    <div class="section-title">CARPETAS <button id="new-folder" aria-label="Nueva carpeta">＋</button></div>
+    <div id="folders"></div>
+    <div class="sidebar-bottom"><button id="backup">Guardar copia</button><button id="restore">Abrir copia</button><span>Guardado local en este navegador</span></div>
+  </aside>
+  <section class="note-list" aria-label="Lista de notas">
+    <header><h1 id="collection-name">Todas las notas</h1><select id="sort" aria-label="Ordenar notas"><option value="updated">Más recientes</option><option value="title">Por título</option></select></header>
+    <input type="search" id="search" placeholder="Buscar notas, texto o etiquetas" aria-label="Buscar notas">
+    <div id="notes" role="list"></div>
+  </section>
+  <main class="workspace">
+    <section id="empty-state" class="empty"><span class="empty-symbol" aria-hidden="true">Aa</span><h2>Un espacio para tus ideas</h2><p>Escribe, organiza y guarda tus apuntes.</p><button id="empty-new" class="primary">Crear mi primera nota</button></section>
+    <section id="note-panel" hidden>
+      <header class="editor-header"><div><span class="eyebrow">TU CUADERNO DIGITAL</span><span id="save-status" role="status" aria-live="polite">Guardado</span></div><div class="note-actions"><button id="favorite" aria-label="Añadir a favoritos" aria-pressed="false">☆</button><button id="duplicate">Duplicar</button><button id="export" class="secondary">Exportar</button><button id="trash-note">Papelera</button></div></header>
+      <div class="paper">
+        <input id="title" class="note-title" placeholder="Nota sin título" aria-label="Título de la nota" maxlength="250">
+        <div class="metadata"><label>Carpeta <input id="folder" list="folder-options" placeholder="Sin carpeta" maxlength="150"></label><datalist id="folder-options"></datalist><label>Etiquetas <input id="tags" placeholder="estudio, ideas…" maxlength="500"></label></div>
+        <div id="format-toolbar" role="toolbar" aria-label="Formato de texto">
+          <button data-command="bold" aria-label="Negrita" title="Negrita · Ctrl+B"><b>B</b></button><button data-command="italic" aria-label="Cursiva" title="Cursiva · Ctrl+I"><i>I</i></button><button data-command="underline" aria-label="Subrayado" title="Subrayado · Ctrl+U"><u>U</u></button>
+          <select id="text-style" aria-label="Estilo de párrafo"><option value="p">Texto</option><option value="h2">Título</option><option value="h3">Subtítulo</option></select>
+          <button data-command="insertUnorderedList" aria-label="Lista con viñetas">• Lista</button><button data-command="insertOrderedList" aria-label="Lista numerada">1. Lista</button><button id="checklist">☐ Tareas</button><button data-command="undo" aria-label="Deshacer">↶</button><button data-command="redo" aria-label="Rehacer">↷</button>
+          <label class="color-label">Color <input id="text-color" type="color" value="#284750" aria-label="Color del texto"></label><button id="add-link">Enlace</button><button data-command="removeFormat">Sin formato</button>
+        </div>
+        <div id="editor" contenteditable="true" role="textbox" aria-label="Contenido de la nota" aria-multiline="true" data-placeholder="Empieza a escribir aquí…"></div>
+        <div class="insert-row"><button id="add-image">＋ Imagen</button><button id="add-file">＋ Archivo / PDF</button><span>También puedes pegar imágenes o arrastrar archivos.</span></div>
+        <section id="attachments-section" hidden><h2 class="attachments-title">Archivos adjuntos</h2><div id="attachments"></div></section>
+      </div>
+      <footer class="editor-footer"><span id="note-date"></span><span id="word-count"></span></footer>
+    </section>
+  </main>
+</div>
+<input id="image-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple hidden><input id="file-input" type="file" multiple hidden><input id="backup-input" type="file" accept="application/json,.json" hidden>
+<dialog id="action-dialog"><form method="dialog"><h2 id="dialog-title"></h2><div id="dialog-content"></div><div class="dialog-actions"><button value="cancel">Cancelar</button><button id="dialog-confirm" class="primary" value="confirm">Aceptar</button></div></form></dialog>
+<dialog id="pdf-dialog"><header><strong id="pdf-name"></strong><button id="close-pdf">Cerrar</button></header><iframe id="pdf-viewer" title="Vista previa del PDF" sandbox="allow-scripts"></iframe></dialog>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<script src="core.js"></script><script src="app.js"></script>
+</body></html>
