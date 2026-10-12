@@ -6,8 +6,10 @@
   <aside class="sidebar" aria-label="Colecciones">
     <div class="brand"><span class="brand-mark" aria-hidden="true">✎</span><div><strong>Mis notas</strong><span>Tu espacio personal</span></div></div>
     <button id="new-note" class="primary">＋ Nueva nota</button>
+    <button id="new-notebook" class="secondary">＋ Nuevo cuaderno</button>
     <nav aria-label="Biblioteca"><button data-filter="all" class="selected"><span aria-hidden="true">▤</span> Todas las notas <span id="count-all"></span></button><button data-filter="favorites"><span aria-hidden="true">☆</span> Favoritos</button><button data-filter="trash"><span aria-hidden="true">♧</span> Papelera</button></nav>
     <div class="section-title">CARPETAS <button id="new-folder" aria-label="Nueva carpeta">＋</button></div>
+    <button data-filter="notebooks">▣ Mis cuadernos</button>
     <div id="folders"></div>
     <div class="sidebar-bottom"><div class="backup-caption">Tus ideas, a salvo</div><button id="backup">Guardar copia de seguridad</button><button id="restore">Abrir una copia</button><span>Las notas se guardan en este navegador.<br>Conserva también una copia de seguridad.</span></div>
   </aside>
@@ -21,9 +23,14 @@
     <section id="note-panel" hidden>
       <header class="editor-header"><div><span class="eyebrow">TU CUADERNO DIGITAL</span><span id="save-status" role="status" aria-live="polite">Guardado</span></div><div class="note-actions"><button id="favorite" aria-label="Añadir a favoritos" aria-pressed="false">☆</button><button id="duplicate">Duplicar</button><button id="export" class="secondary">Exportar</button><button id="trash-note">Papelera</button></div></header>
       <div class="paper">
+        <div class="notebook-controls"><button id="appearance">Portada y papel</button><button id="draw">Dibujar con mouse</button><button id="focus-mode" aria-pressed="false">Concentración</button><span id="page-label"></span></div>
+        <div id="page-navigation" hidden><select id="page-select" aria-label="Página del cuaderno"></select><button id="add-page">＋ Página</button><button id="rename-page">Renombrar</button><button id="copy-page">Duplicar página</button><button id="page-up" aria-label="Mover página antes">↑</button><button id="page-down" aria-label="Mover página después">↓</button><button id="delete-page">Eliminar página</button></div>
         <input id="title" class="note-title" placeholder="Nota sin título" aria-label="Título de la nota" maxlength="250">
         <div class="metadata"><label>Carpeta <input id="folder" list="folder-options" placeholder="Sin carpeta" maxlength="150"></label><datalist id="folder-options"></datalist><label>Etiquetas <input id="tags" placeholder="estudio, ideas…" maxlength="500"></label></div>
         <div id="format-toolbar" role="toolbar" aria-label="Formato de texto">
+          <select id="font-family" aria-label="Tipo de letra"><option value="Segoe UI">Segoe UI</option><option value="Arial">Arial</option><option value="Georgia">Georgia</option><option value="Courier New">Monoespaciada</option></select>
+          <select id="font-size" aria-label="Tamaño de letra"><option value="2">Pequeña</option><option value="3" selected>Normal</option><option value="4">Grande</option><option value="5">Muy grande</option><option value="6">Encabezado</option></select>
+          <label class="color-label">Destacador <input id="highlight-color" type="color" value="#fff0a8" aria-label="Color del destacador"></label><button id="highlight">Destacar</button>
           <button data-command="bold" aria-label="Negrita" title="Negrita · Ctrl+B"><b>B</b></button><button data-command="italic" aria-label="Cursiva" title="Cursiva · Ctrl+I"><i>I</i></button><button data-command="underline" aria-label="Subrayado" title="Subrayado · Ctrl+U"><u>U</u></button>
           <select id="text-style" aria-label="Estilo de párrafo"><option value="p">Texto</option><option value="h2">Título</option><option value="h3">Subtítulo</option></select>
           <button data-command="insertUnorderedList" aria-label="Lista con viñetas">• Lista</button><button data-command="insertOrderedList" aria-label="Lista numerada">1. Lista</button><button id="checklist">☐ Tareas</button><button data-command="undo" aria-label="Deshacer">↶</button><button data-command="redo" aria-label="Rehacer">↷</button>
@@ -40,7 +47,7 @@
 <input id="image-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple hidden><input id="file-input" type="file" multiple hidden><input id="backup-input" type="file" accept="application/json,.json" hidden>
 <dialog id="action-dialog"><form method="dialog"><h2 id="dialog-title"></h2><div id="dialog-content"></div><div class="dialog-actions"><button value="cancel">Cancelar</button><button id="dialog-confirm" class="primary" value="confirm">Aceptar</button></div></form></dialog>
 <dialog id="pdf-dialog"><header><strong id="pdf-name"></strong><button id="close-pdf">Cerrar</button></header><iframe id="pdf-viewer" title="Vista previa del PDF" sandbox="allow-scripts"></iframe></dialog>
+<dialog id="drawing-dialog"><header><h2>Dibujo con mouse o panel táctil</h2><button id="close-drawing">Cerrar</button></header><div class="drawing-tools"><select id="pen-type" aria-label="Herramienta de dibujo"><option value="pen">Bolígrafo</option><option value="pencil">Lápiz</option><option value="marker">Destacador</option><option value="eraser">Goma</option></select><label>Color <input id="pen-color" type="color" value="#5856d6"></label><label>Grosor <input id="pen-width" type="range" min="1" max="30" value="4"></label><button id="drawing-undo">Deshacer</button><button id="drawing-redo">Rehacer</button></div><canvas id="drawing-canvas" width="1000" height="600" aria-label="Lienzo para dibujar con el mouse"></canvas><p>El dibujo se insertará como imagen en la página. Puedes ajustar su tamaño después.</p><button id="insert-drawing" class="primary">Insertar dibujo</button></dialog>
 <div id="toast" role="status" aria-live="polite" hidden></div>
 <script src="core.js"></script><script src="app.js"></script>
 </body></html>
-

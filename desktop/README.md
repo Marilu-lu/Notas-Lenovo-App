@@ -4,6 +4,22 @@ Lee primero `INSTALAR.txt`, incluido en el paquete, para abrir la aplicación y 
 
 Versión local para escribir notas, dar formato, insertar imágenes y adjuntar PDF u otros archivos. No contiene controles de lápiz digital.
 
+## Novedades de Notebook 0.2
+
+- Cuadernos independientes de las carpetas, con portada de color o imagen propia y vista previa al crearlos.
+- Páginas blancas, rayadas, cuadriculadas, de puntos y Cornell. Cambiar el papel conserva el contenido; las páginas nuevas heredan el estilo de la página actual.
+- Añadir, renombrar, duplicar, reordenar y eliminar páginas. Se conserva al menos una página por cuaderno; máximo 200.
+- Búsqueda en los nombres y texto de todas las páginas. Una coincidencia abre el cuaderno; utiliza el selector de páginas para localizarla.
+- Fuentes, tamaños y destacador de texto, conservados en el respaldo editable.
+- Modo concentración; Escape vuelve a mostrar la biblioteca.
+- Lienzo de dibujo con mouse/panel táctil: bolígrafo, lápiz, destacador y goma, grosor, color y deshacer/rehacer. El dibujo se inserta como PNG: los trazos no pueden reabrirse para edición individual.
+- Exportación TXT y PDF/impresión de todas las páginas de un cuaderno. La impresión no reproduce la portada ni el fondo de papel; no incluye las páginas de PDF adjuntos.
+- Los respaldos JSON de Notebook 0.1 pueden abrirse en 0.2. Para conservar cuadernos, restaura las nuevas copias en 0.2 o posterior.
+
+Las comprobaciones de lógica y estructura pasaron. La apariencia, edición de texto, impresión y guardado IndexedDB deben verificarse en Edge/Chrome del usuario: el navegador de revisión bloquea archivos locales.
+
+Pendientes: tinta editable por trazos, anotación directa sobre PDF, miniaturas de páginas, separadores, tamaño/orientación de papel, versiones anteriores y un formato común con Android. No se declara que estas funciones sean exclusivas frente a otras aplicaciones.
+
 ## Abrir
 
 1. Extraer toda la carpeta del ZIP a una ubicación estable del notebook.

@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),C=require('../core.js');
+const base={id:'legacy',title:'Apuntes',html:'Texto anterior',attachments:[],created:1,updated:2};
+const old=C.validate(base);assert.equal(old.kind,'note');assert.equal(old.html,base.html);
+const book=C.validate({...base,kind:'notebook',cover:'sage',pages:[{id:'a',name:'Introducción',html:'Inicio',paper:'ruled'},{id:'b',name:'Tema 2',html:'mitocondria',paper:'grid'}],pageIndex:1});
+assert.equal(book.pages[1].paper,'grid');assert.equal(book.cover,'sage');
+assert.equal(C.filterNotes([old,book],'notebooks','','updated').length,1);
+assert.equal(C.filterNotes([book],'all','mitocondria','updated').length,1);
+const restored=C.parseBackup(JSON.parse(JSON.stringify({format:'mis-notas-notebook',version:1,notes:[book]})))[0];
+assert.deepEqual(restored.pages,book.pages);assert.equal(restored.pageIndex,1);
+assert.throws(()=>C.validate({...book,pages:[]}),/200 páginas/);
+assert.throws(()=>C.validate({...book,pages:[book.pages[0],book.pages[0]]}),/repetidos/);
+assert.equal(C.validate({...book,pageIndex:99}).pageIndex,1);
+assert.equal(C.validate({...book,cover:'bad',pages:[{id:'x',html:'',paper:'bad'}]}).pages[0].paper,'plain');
+assert.throws(()=>C.validate({...book,coverImage:'https://example.com/tracker.png'}),/portada/);
+const photo=C.validate({...book,coverImage:'data:image/png;base64,YQ=='});assert.equal(C.parseBackup({format:'mis-notas-notebook',version:1,notes:[photo]})[0].coverImage,photo.coverImage);
+console.log('PASS: notas anteriores, cuadernos, búsqueda en todas las páginas, respaldo y validación.');

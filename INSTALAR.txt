@@ -3,7 +3,7 @@ MIS NOTAS: GUÍA DE INSTALACIÓN Y PRIMER USO
 
 ELIGE TU DISPOSITIVO
 - Tablet Lenovo: usa Mis-notas-Lenovo-0.2.apk.
-- PC o notebook Samsung con Windows: usa Mis-notas-Notebook-0.1.zip.
+- PC o notebook Samsung con Windows: usa Mis-notas-Notebook-0.2.zip.
 El APK es para Android. No se abre en Windows.
 No necesitas Android Studio para usar ninguna de las dos versiones.
 
@@ -28,7 +28,7 @@ Si ya tienes Mis notas instalada:
 
 PC / NOTEBOOK SAMSUNG CON WINDOWS
 Esta versión se abre en el navegador; todavía no tiene instalador EXE.
-1. Descarga Mis-notas-Notebook-0.1.zip desde el enlace del chat.
+1. Descarga Mis-notas-Notebook-0.2.zip desde el enlace del chat.
 2. Haz clic derecho en el ZIP y elige Extraer todo.
 3. Guarda la carpeta extraída en un lugar fijo, por ejemplo:
    Documentos\Mis-notas-Notebook.
