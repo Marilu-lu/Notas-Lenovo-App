@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Mis notas · Notebook</title><link rel="stylesheet" href="styles.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; frame-src blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Mis notas · Notebook</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="modern.css"></head>
 <body>
 <div class="app">
   <aside class="sidebar" aria-label="Colecciones">
-    <div class="brand"><span class="brand-mark" aria-hidden="true">N</span><div><strong>Mis notas</strong><span>Notebook</span></div></div>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✎</span><div><strong>Mis notas</strong><span>Tu espacio personal</span></div></div>
     <button id="new-note" class="primary">＋ Nueva nota</button>
-    <nav><button data-filter="all" class="selected">Todas las notas <span id="count-all"></span></button><button data-filter="favorites">☆ Favoritos</button><button data-filter="trash">Papelera</button></nav>
+    <nav aria-label="Biblioteca"><button data-filter="all" class="selected"><span aria-hidden="true">▤</span> Todas las notas <span id="count-all"></span></button><button data-filter="favorites"><span aria-hidden="true">☆</span> Favoritos</button><button data-filter="trash"><span aria-hidden="true">♧</span> Papelera</button></nav>
     <div class="section-title">CARPETAS <button id="new-folder" aria-label="Nueva carpeta">＋</button></div>
     <div id="folders"></div>
-    <div class="sidebar-bottom"><button id="backup">Guardar copia</button><button id="restore">Abrir copia</button><span>Guardado local en este navegador</span></div>
+    <div class="sidebar-bottom"><div class="backup-caption">Tus ideas, a salvo</div><button id="backup">Guardar copia de seguridad</button><button id="restore">Abrir una copia</button><span>Las notas se guardan en este navegador.<br>Conserva también una copia de seguridad.</span></div>
   </aside>
   <section class="note-list" aria-label="Lista de notas">
-    <header><h1 id="collection-name">Todas las notas</h1><select id="sort" aria-label="Ordenar notas"><option value="updated">Más recientes</option><option value="title">Por título</option></select></header>
+    <header><span class="eyebrow">BIBLIOTECA</span><h1 id="collection-name">Todas las notas</h1><select id="sort" aria-label="Ordenar notas"><option value="updated">Más recientes</option><option value="title">Por título</option></select></header>
     <input type="search" id="search" placeholder="Buscar notas, texto o etiquetas" aria-label="Buscar notas">
     <div id="notes" role="list"></div>
   </section>
   <main class="workspace">
-    <section id="empty-state" class="empty"><span class="empty-symbol" aria-hidden="true">Aa</span><h2>Un espacio para tus ideas</h2><p>Escribe, organiza y guarda tus apuntes.</p><button id="empty-new" class="primary">Crear mi primera nota</button></section>
+    <section id="empty-state" class="empty"><span class="empty-symbol" aria-hidden="true">✎</span><span class="eyebrow">UNA IDEA ES UN BUEN COMIENZO</span><h2>Dale espacio a tus ideas.</h2><p>Desde un apunte rápido hasta tu próximo proyecto.<br>Escribe, añade imágenes y reúne todo en un lugar.</p><button id="empty-new" class="primary">＋ Crear una nota</button><div class="empty-tips"><span>Texto con formato</span><span>Imágenes y PDF</span><span>Carpetas y etiquetas</span></div></section>
     <section id="note-panel" hidden>
       <header class="editor-header"><div><span class="eyebrow">TU CUADERNO DIGITAL</span><span id="save-status" role="status" aria-live="polite">Guardado</span></div><div class="note-actions"><button id="favorite" aria-label="Añadir a favoritos" aria-pressed="false">☆</button><button id="duplicate">Duplicar</button><button id="export" class="secondary">Exportar</button><button id="trash-note">Papelera</button></div></header>
       <div class="paper">
@@ -30,7 +30,7 @@
           <label class="color-label">Color <input id="text-color" type="color" value="#284750" aria-label="Color del texto"></label><button id="add-link">Enlace</button><button data-command="removeFormat">Sin formato</button>
         </div>
         <div id="editor" contenteditable="true" role="textbox" aria-label="Contenido de la nota" aria-multiline="true" data-placeholder="Empieza a escribir aquí…"></div>
-        <div class="insert-row"><button id="add-image">＋ Imagen</button><button id="add-file">＋ Archivo / PDF</button><span>También puedes pegar imágenes o arrastrar archivos.</span></div>
+        <div class="insert-row"><button id="add-image">＋ Añadir imagen</button><button id="add-file">＋ Adjuntar archivo / PDF</button><span>Pega una imagen o arrastra tus archivos aquí.</span></div>
         <section id="attachments-section" hidden><h2 class="attachments-title">Archivos adjuntos</h2><div id="attachments"></div></section>
       </div>
       <footer class="editor-footer"><span id="note-date"></span><span id="word-count"></span></footer>
@@ -43,3 +43,4 @@
 <div id="toast" role="status" aria-live="polite" hidden></div>
 <script src="core.js"></script><script src="app.js"></script>
 </body></html>
+
